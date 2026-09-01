@@ -23,22 +23,44 @@
       --badge-text: #784732;
     }
 
-    /* 投影片整體背景與溫暖色調 */
-    .reveal {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
-      color: var(--text-main);
-      background: var(--bg-warm);
+    /* 確保手機整個視窗與外圍邊框都是一致的奶茶底色，不產生突兀白邊 */
+    html, body {
+      background-color: var(--bg-warm) !important;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
 
-    /* 投影片單頁容器：適應 1200x700 畫布，防止垂直溢出 */
+    .reveal-viewport, .reveal {
+      background-color: var(--bg-warm) !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      color: var(--text-main);
+    }
+
+    /* 固定 1200x700 畫布容器，避免動態 top 造成位移跑版 */
+    .reveal .slides {
+      text-align: left;
+    }
+
     .reveal .slides > section {
-      padding: 22px 34px !important;
+      width: 1200px !important;
+      height: 700px !important;
+      top: 0 !important;
+      left: 0 !important;
+      padding: 30px 40px !important;
       box-sizing: border-box !important;
-      height: 100% !important;
       display: flex !important;
       flex-direction: column !important;
       justify-content: flex-start !important;
-      text-align: left;
+    }
+
+    /* 首頁與結尾頁專用居中排版 */
+    .reveal .slides > section.center-slide {
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
     }
 
     /* 標題與版面階層 */
@@ -50,13 +72,13 @@
     }
 
     .reveal h2 {
-      font-size: 1.3em;
-      margin-bottom: 10px;
+      font-size: 1.35em;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 2px solid var(--card-border);
-      padding-bottom: 5px;
+      padding-bottom: 6px;
     }
 
     .header-tag {
@@ -65,10 +87,10 @@
       font-weight: normal;
     }
 
-    /* 網格系統：強制等高、網底切齊 */
+    /* 網格系統：高度自動撐滿，網底等高切齊 */
     .grid-container {
       display: grid;
-      gap: 12px;
+      gap: 14px;
       width: 100%;
       flex: 1;
       align-items: stretch;
@@ -83,7 +105,7 @@
     /* 卡片與網底樣式 */
     .card {
       background: var(--card-bg);
-      padding: 12px 15px;
+      padding: 14px 18px;
       border-radius: 12px;
       box-shadow: 0 4px 14px rgba(70, 50, 40, 0.04);
       border: 1px solid var(--card-border);
@@ -96,34 +118,34 @@
     }
 
     .card-title {
-      font-size: 0.88em;
+      font-size: 0.9em;
       font-weight: bold;
       color: var(--text-main);
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
     .card-body {
-      font-size: 0.70em;
+      font-size: 0.72em;
       color: var(--text-sub);
       line-height: 1.45;
       flex: 1;
     }
 
     .card-note {
-      font-size: 0.60em;
+      font-size: 0.62em;
       color: var(--text-sub);
-      margin-top: 5px;
+      margin-top: 6px;
       border-top: 1px dashed var(--card-border);
-      padding-top: 3px;
+      padding-top: 4px;
     }
 
     /* 角色圖片規範 */
     .char-img {
       width: 100%;
-      height: 90px;
+      height: 95px;
       object-fit: contain;
       background: #faf6f2;
       border-radius: 8px;
@@ -134,13 +156,13 @@
 
     .badge {
       display: inline-block;
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 9999px;
       background: var(--badge-bg);
-      font-size: 0.58em;
+      font-size: 0.6em;
       font-weight: bold;
       color: var(--badge-text);
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       align-self: flex-start;
     }
 
@@ -151,9 +173,9 @@
     }
 
     ul.clean-list li {
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       line-height: 1.4;
-      font-size: 0.72em;
+      font-size: 0.74em;
     }
   </style>
 </head>
@@ -165,14 +187,19 @@
   <div class="reveal">
     <div class="slides">
 
-      <!-- 第 1 頁：封面 -->
-      <section style="justify-content: center !important; align-items: center !important; text-align: center;" data-background-image="cover.jpg" data-background-opacity="0.2">
-        <div class="card" style="max-width: 820px; width: 100%; padding: 34px 38px; text-align: center; height: auto;">
+<!-- 第 1 頁：封面（修正：加入 contain 防止手機直向放大爆圖） -->
+      <section class="center-slide" 
+               data-background-image="cover.jpg" 
+               data-background-size="contain" 
+               data-background-position="center" 
+               data-background-repeat="no-repeat" 
+               data-background-opacity="0.18">
+        <div class="card" style="width: 780px; padding: 40px 30px; text-align: center; height: auto;">
           <span class="badge" style="align-self: center;">超出可愛的現實描繪</span>
-          <h1 style="font-size: 2.1em; color: var(--text-main); margin: 10px 0 6px 0;">吉伊卡哇</h1>
-          <p style="font-size: 1.02em; color: var(--text-sub); margin: 0 0 14px 0;">《這又小又可愛的傢伙》</p>
-          <hr style="border: none; border-top: 1px solid var(--card-border); margin: 12px auto; width: 75%;">
-          <p style="font-size: 0.78em; color: var(--text-sub); margin: 0;"></p>
+          <h1 style="font-size: 2.3em; color: var(--text-main); margin: 12px 0 6px 0;">吉伊卡哇</h1>
+          <p style="font-size: 1.1em; color: var(--text-sub); margin: 0 0 16px 0;">《這又小又可愛的傢伙》</p>
+          <hr style="border: none; border-top: 1px solid var(--card-border); margin: 14px auto; width: 60%;">
+          <p style="font-size: 0.8em; color: var(--text-sub); margin: 0;">世界觀與社會隱喻</p>
         </div>
       </section>
 
@@ -181,25 +208,25 @@
         <h2>Outline <span class="header-tag">目錄</span></h2>
         <div class="grid-container grid-2">
           <div class="card">
-            <div class="card-title">I：世界觀與角色陣容</div>
+            <div class="card-title">第一部分：世界觀與角色陣容</div>
             <div class="card-body">
               <ul class="clean-list">
-                <li>。殘酷與溫馨並存：吉伊卡哇的世界觀</li>
-                <li>。三小隻的羈絆（主角三人組）</li>
-                <li>。人氣實力組（飛鼠、栗子饅頭、海獺）</li>
-                <li>。夥伴與守護者（獅薩、古本屋、鎧甲人）</li>
-                <li>。烏薩奇 呀哈 </li>
+                <li>01. 殘酷與溫馨並存：吉伊卡哇的世界觀</li>
+                <li>02. 三小隻的羈絆（主角三人組）</li>
+                <li>03. 人氣實力組（飛鼠、栗子饅頭、海獺）</li>
+                <li>04. 夥伴與守護者（獅薩、古本屋、鎧甲人）</li>
+                <li>05. 烏薩奇 呀哈（戰神專題）</li>
               </ul>
             </div>
             <div class="card-note">核心架構：生態體系與角色設定剖析</div>
           </div>
           <div class="card">
-            <div class="card-title">II：深度反差與社會共鳴</div>
+            <div class="card-title">第二部分：深度反差與社會共鳴</div>
             <div class="card-body">
               <ul class="clean-list">
-                <li>。核心反差：怪物、擬態型與奇美拉 </li>
-                <li>。成人共鳴：為什麼大人看得一把鼻涕一把眼淚？</li>
-                <li>。結尾與 Q&A 交流</li>
+                <li>06. 核心反差：怪物、擬態型與奇美拉（異化悲歌）</li>
+                <li>07. 成人共鳴：為什麼大人看得一把鼻涕一把眼淚？</li>
+                <li>08. 結尾與 Q&A 交流</li>
               </ul>
             </div>
             <div class="card-note">內核意涵：直擊當代社會心理的深刻共鳴</div>
@@ -238,7 +265,7 @@
 
       <!-- 第 4 頁：十大角色介紹之一（主角三人組） -->
       <section>
-        <h2>三小隻 <span class="header-tag">Main Trio</span></h2>
+        <h2>核心角色介紹（一）：主角三人組 <span class="header-tag">Main Trio</span></h2>
         <div class="grid-container grid-3">
           <div class="card">
             <img src="chiikawa.jpg" alt="吉伊卡哇" class="char-img">
@@ -255,8 +282,8 @@
             </div>
           </div>
           <div class="card">
-            <img src="usagi_thumb.jpg" alt="兔兔" class="char-img">
-            <div class="card-title" style="color: var(--accent-amber);">3. 兔兔</div>
+            <img src="usagi_thumb.jpg" alt="烏薩奇" class="char-img">
+            <div class="card-title" style="color: var(--accent-amber);">3. 烏薩奇</div>
             <div class="card-body">
               行事瘋癲的自由戰神。擁有頂級除草三級證照，永遠在團隊面臨滅團危機時神救援。
             </div>
@@ -266,11 +293,11 @@
 
       <!-- 第 5 頁：十大角色介紹之二（人氣實力組） -->
       <section>
-        <h2>人氣實力組 <span class="header-tag">Popular Characters</span></h2>
+        <h2>核心角色介紹（二）：人氣實力組 <span class="header-tag">Popular Characters</span></h2>
         <div class="grid-container grid-3">
           <div class="card">
-            <img src="momonga.jpg" alt="小桃" class="char-img">
-            <div class="card-title" style="color: var(--accent-warm);">4. 小桃</div>
+            <img src="momonga.jpg" alt="飛鼠" class="char-img">
+            <div class="card-title" style="color: var(--accent-warm);">4. 飛鼠 (Momonga)</div>
             <div class="card-body">
               瘋狂渴求被他人誇獎與裝可愛。性格任性霸道，背後疑似隱藏著奪取他人身軀的秘密。
             </div>
@@ -283,8 +310,8 @@
             </div>
           </div>
           <div class="card">
-            <img src="rakko.jpg" alt="海獺" class="char-img">
-            <div class="card-title" style="color: var(--accent-amber);">6. 海獺</div>
+            <img src="rakko.jpg" alt="海獺師傅" class="char-img">
+            <div class="card-title" style="color: var(--accent-amber);">6. 海獺師傅</div>
             <div class="card-body">
               討伐榜首第一戰力。實力強大受人敬仰，開著帥氣黃色小車，私下對甜食完全沒有抵抗力。
             </div>
@@ -312,14 +339,14 @@
           </div>
           <div class="card">
             <img src="armor_work.jpg" alt="勞動鎧甲人" class="char-img">
-            <div class="card-title" style="color: var(--text-sub); font-size: 0.82em;">9. 勞動鎧甲先生</div>
+            <div class="card-title" style="color: var(--text-sub); font-size: 0.82em;">9. 勞動鎧甲</div>
             <div class="card-body" style="font-size: 0.65em;">
               公事公辦的公務員體系，負責分派每日除草與討伐任務並發放工資。
             </div>
           </div>
           <div class="card">
             <img src="armor_pochette.jpg" alt="波謝特鎧甲" class="char-img">
-            <div class="card-title" style="color: var(--accent-earth); font-size: 0.82em;">10. 手拿包鎧甲先生</div>
+            <div class="card-title" style="color: var(--accent-earth); font-size: 0.82em;">10. 波謝特鎧甲</div>
             <div class="card-body" style="font-size: 0.65em;">
               熱愛手作縫紉，跨越管理規範與吉伊卡哇、小八貓建立深厚友誼。
             </div>
@@ -353,7 +380,7 @@
 
       <!-- 第 8 頁：補充內容之一（雙倍篇幅，恐怖與反差美學） -->
       <section>
-        <h2>恐怖與反差美學 <span class="header-tag">Aesthetics & Irony</span></h2>
+        <h2>補充深度：恐怖與反差美學 <span class="header-tag">Aesthetics & Irony</span></h2>
         <div class="grid-container grid-2">
           <div class="card">
             <div class="card-title" style="color: var(--accent-warm);">「不想再努力了」的代價與異化悲歌</div>
@@ -364,7 +391,7 @@
                 <li><strong>走捷徑的殘酷代價：</strong> 能夠輕易實現願望的木偶或魔杖，往往伴隨著不可逆的精神侵蝕與變異，隱喻現實中捷徑背後的高昂代價。</li>
               </ul>
             </div>
-            <div class="card-note">直擊當代人面對高壓競爭時對自我迷失的恐懼</div>
+            <div class="card-note">內核：直擊當代人面對高壓競爭時對自我迷失的恐懼</div>
           </div>
           <div class="card">
             <div class="card-title" style="color: var(--accent-amber);">Nagano 式反差美學的敘事魅力</div>
@@ -375,14 +402,14 @@
                 <li><strong>危險邊緣的認真日常：</strong> 即使隨時有魔物侵襲，大家依然認真準備每一餐、修補破舊山洞，展現強韌的生活態度。</li>
               </ul>
             </div>
-            <div class="card-note">跳脫傳統可愛動畫框架，具備深刻思考的成人寓言</div>
+            <div class="card-note">價值：跳脫傳統可愛動畫框架，具備深刻思考的成人寓言</div>
           </div>
         </div>
       </section>
 
       <!-- 第 9 頁：補充內容之二（雙倍篇幅，為何成年人深感共鳴） -->
       <section>
-        <h2>為何成年人深感共鳴？ <span class="header-tag">Emotional Resonance</span></h2>
+        <h2>補充深度：為何成年人深感共鳴？ <span class="header-tag">Emotional Resonance</span></h2>
         <div class="grid-container grid-2">
           <div class="card">
             <div class="card-title" style="color: var(--accent-earth);">現實生活的真實投射與挫折</div>
@@ -410,13 +437,14 @@
       </section>
 
       <!-- 第 10 頁：結尾頁 -->
-      <section style="justify-content: center !important; align-items: center !important; text-align: center;">
-        <div class="card" style="max-width: 780px; width: 100%; text-align: center; padding: 34px; height: auto;">
+      <section class="center-slide">
+        <div class="card" style="width: 780px; padding: 40px 30px; text-align: center; height: auto;">
           <span class="badge" style="align-self: center;">Thank You</span>
-          <h1 style="font-size: 2em; margin: 10px 0 6px 0; color: var(--text-main);">哇！哇！嗚啦！</h1>
-          <p style="font-size: 1.05em; color: var(--text-sub); margin-bottom: 14px;">普嚕嚕嚕嚕</p>
+          <h1 style="font-size: 2.3em; margin: 12px 0 6px 0; color: var(--text-main);">哇！哇！嗚啦！</h1>
+          <p style="font-size: 1.1em; color: var(--text-sub); margin: 0 0 16px 0;">普嚕嚕嚕嚕</p>
           <hr style="border: none; border-top: 1px solid var(--card-border); margin: 14px auto; width: 60%;">
-          <p style="font-size: 0.75em; color: var(--text-sub); margin: 0;">
+          <p style="font-size: 0.8em; color: var(--text-sub); margin: 0;">
+            感謝聆聽・按 <strong>ESC</strong> 查看全景 ｜ 按 <strong>S</strong> 開啟演講者模式
           </p>
         </div>
       </section>
@@ -431,13 +459,13 @@
       width: 1200,          // 基準寬度 (16:9)
       height: 700,          // 基準高度 (16:9)
       margin: 0.04,         // 邊界保留比例
-      minScale: 0.1,        // 允許縮小至 10%，確保直向小螢幕手機完整放入不切字
+      minScale: 0.1,        // 允許縮小至 10%，確保手機直向能完整容納不切邊
       maxScale: 2.0,        // 允許高解析度螢幕放大至 200%
       hash: true,
       slideNumber: 'c/t',
       controls: true,
       progress: true,
-      center: true,         // 自動將縮放後的投影片在畫面中完美置中
+      center: false,        // 關閉 Reveal 動態 top 計算，解決手機位移跑版問題
       transition: 'slide',  // 換頁滑動動畫
       touch: true           // 支援手機觸控滑動翻頁
     });
