@@ -2,23 +2,14 @@
 <html lang="zh-TW">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>吉伊卡哇世界觀與角色解析</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>吉伊卡哇 CHIIKAWA</title>
   
   <!-- Reveal.js CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/white.min.css" id="theme">
 
   <style>
-	@media (max-width: 768px) {
-  .grid-2, .grid-3, .grid-4 {
-    grid-template-columns: 1fr !important; /* 手機直向時自動變為單欄 */
-    overflow-y: auto; /* 若內容較長允許垂直滑動 */
-  }
-  .char-img {
-    height: 140px !important; /* 手機上圖片適度放大 */
-  }
-}
     :root {
       --bg-warm: #faf6f0;
       --card-bg: #ffffff;
@@ -39,9 +30,9 @@
       background: var(--bg-warm);
     }
 
-    /* 投影片單頁容器：嚴格適應 1200x700 畫布，防止溢出 */
+    /* 投影片單頁容器：適應 1200x700 畫布，防止垂直溢出 */
     .reveal .slides > section {
-      padding: 20px 36px !important;
+      padding: 22px 34px !important;
       box-sizing: border-box !important;
       height: 100% !important;
       display: flex !important;
@@ -60,12 +51,12 @@
 
     .reveal h2 {
       font-size: 1.3em;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 2px solid var(--card-border);
-      padding-bottom: 6px;
+      padding-bottom: 5px;
     }
 
     .header-tag {
@@ -74,10 +65,10 @@
       font-weight: normal;
     }
 
-    /* 網格系統：高度自動撐滿，網底等高切齊 */
+    /* 網格系統：強制等高、網底切齊 */
     .grid-container {
       display: grid;
-      gap: 14px;
+      gap: 12px;
       width: 100%;
       flex: 1;
       align-items: stretch;
@@ -92,7 +83,7 @@
     /* 卡片與網底樣式 */
     .card {
       background: var(--card-bg);
-      padding: 14px 16px;
+      padding: 12px 15px;
       border-radius: 12px;
       box-shadow: 0 4px 14px rgba(70, 50, 40, 0.04);
       border: 1px solid var(--card-border);
@@ -105,38 +96,38 @@
     }
 
     .card-title {
-      font-size: 0.9em;
+      font-size: 0.88em;
       font-weight: bold;
       color: var(--text-main);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
     .card-body {
-      font-size: 0.72em;
+      font-size: 0.70em;
       color: var(--text-sub);
       line-height: 1.45;
       flex: 1;
     }
 
     .card-note {
-      font-size: 0.62em;
+      font-size: 0.60em;
       color: var(--text-sub);
-      margin-top: 6px;
+      margin-top: 5px;
       border-top: 1px dashed var(--card-border);
-      padding-top: 4px;
+      padding-top: 3px;
     }
 
     /* 角色圖片規範 */
     .char-img {
       width: 100%;
-      height: 95px;
+      height: 90px;
       object-fit: contain;
       background: #faf6f2;
       border-radius: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       padding: 4px;
       box-sizing: border-box;
     }
@@ -146,10 +137,10 @@
       padding: 3px 10px;
       border-radius: 9999px;
       background: var(--badge-bg);
-      font-size: 0.6em;
+      font-size: 0.58em;
       font-weight: bold;
       color: var(--badge-text);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       align-self: flex-start;
     }
 
@@ -160,9 +151,9 @@
     }
 
     ul.clean-list li {
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       line-height: 1.4;
-      font-size: 0.75em;
+      font-size: 0.72em;
     }
   </style>
 </head>
@@ -176,99 +167,98 @@
 
       <!-- 第 1 頁：封面 -->
       <section style="justify-content: center !important; align-items: center !important; text-align: center;" data-background-image="cover.jpg" data-background-opacity="0.2">
-        <div class="card" style="max-width: 820px; width: 100%; padding: 36px 40px; text-align: center; height: auto;">
-          <span class="badge" style="align-self: center;">原作設定與現象級文化解析</span>
-          <h1 style="font-size: 2.1em; color: var(--text-main); margin: 10px 0 6px 0;">吉伊卡哇（CHIIKAWA）</h1>
-          <p style="font-size: 1.05em; color: var(--text-sub); margin: 0 0 16px 0;">《這又小又可愛的傢伙》</p>
-          <hr style="border: none; border-top: 1px solid var(--card-border); margin: 14px auto; width: 75%;">
-          <div style="display: flex; justify-content: space-around; font-size: 0.75em; color: var(--text-sub);">
-          </div>
+        <div class="card" style="max-width: 820px; width: 100%; padding: 34px 38px; text-align: center; height: auto;">
+          <span class="badge" style="align-self: center;">超出可愛的現實描繪</span>
+          <h1 style="font-size: 2.1em; color: var(--text-main); margin: 10px 0 6px 0;">吉伊卡哇</h1>
+          <p style="font-size: 1.02em; color: var(--text-sub); margin: 0 0 14px 0;">這又小又可愛的傢伙</p>
+          <hr style="border: none; border-top: 1px solid var(--card-border); margin: 12px auto; width: 75%;">
+          <p style="font-size: 0.78em; color: var(--text-sub); margin: 0;">世界觀與社會隱喻</p>
         </div>
       </section>
 
       <!-- 第 2 頁：目錄 -->
       <section>
-        <h2>大綱 <span class="header-tag">Outline</span></h2>
+        <h2>Outline <span class="header-tag">目錄</span></h2>
         <div class="grid-container grid-2">
           <div class="card">
-            <div class="card-title">I：生態與角色群像</div>
+            <div class="card-title">第一部分：世界觀與角色陣容</div>
             <div class="card-body">
               <ul class="clean-list">
-                <li>。殘酷與溫馨並存：吉伊卡哇的世界觀</li>
-                <li>。核心角色陣容（一）：主角三人組</li>
-                <li>。核心角色陣容（二）：人氣實力組</li>
-                <li>。核心角色陣容（三）：夥伴與守護者</li>
-                <li>。戰神聚焦：烏薩奇 呀哈</li>
+                <li>01. 殘酷與溫馨並存：吉伊卡哇的世界觀</li>
+                <li>02. 三小隻的羈絆（主角三人組）</li>
+                <li>03. 人氣實力組（飛鼠、栗子饅頭、海獺）</li>
+                <li>04. 夥伴與守護者（獅薩、古本屋、鎧甲人）</li>
+                <li>05. 烏薩奇 呀哈（戰神專題）</li>
               </ul>
             </div>
-            <div class="card-note">** 基礎設定與核心人物性格圖鑑 **</div>
+            <div class="card-note">核心架構：生態體系與角色設定剖析</div>
           </div>
           <div class="card">
-            <div class="card-title">II：深度美學與社會隱喻</div>
+            <div class="card-title">第二部分：深度反差與社會共鳴</div>
             <div class="card-body">
               <ul class="clean-list">
-                <li>。深度解析（一）：恐怖與反差美學</li>
-                <li>。深度解析（二）：當代成人的共鳴</li>
-                <li>。結語與交流討論</li>
+                <li>06. 核心反差：怪物、擬態型與奇美拉（異化悲歌）</li>
+                <li>07. 成人共鳴：為什麼大人看得一把鼻涕一把眼淚？</li>
+                <li>08. 結尾與 Q&A 交流</li>
               </ul>
             </div>
-            <div class="card-note">** 剖析作品風靡全年齡受眾的哲理 **</div>
+            <div class="card-note">內核意涵：直擊當代社會心理的深刻共鳴</div>
           </div>
         </div>
       </section>
 
-      <!-- 第 3 頁：主要內容 - 世界觀 -->
+      <!-- 第 3 頁：世界觀 -->
       <section>
         <h2>看似童話，實為嚴酷的勞動世界 <span class="header-tag">Worldview</span></h2>
         <div class="grid-container grid-2">
           <div class="card">
-            <div class="card-title" style="color: var(--accent-amber);">勞動經濟與階級制度</div>
+            <div class="card-title" style="color: var(--accent-amber);">勞動與生存經濟</div>
             <div class="card-body">
               <ul class="clean-list">
-                <li><strong>除草勞動：</strong> 拔除特定或危險雜草賺取微薄工資。具備官方除草證照（五級至一級）可大幅提升報酬，考照機制映射現實考核制度。</li>
-                <li><strong>討伐委託：</strong> 前往危險區域擊退掠食魔物，具備高生命風險，但可換取豐厚賞金。</li>
-                <li><strong>鎧甲人階層：</strong> 作為統治與行政公務階層，負責派工、發放報酬並維持秩序，與受管轄小生物保持微妙界線。</li>
+                <li><strong>除草工作：</strong> 拔除雜草賺取微薄報酬，考取「除草證照」可提升薪酬。</li>
+                <li><strong>討伐任務：</strong> 接取危險委託擊退威脅怪物，賺取豐厚賞金。</li>
+                <li><strong>鎧甲人階層：</strong> 負責行政管理與工資派發的管理者。</li>
               </ul>
             </div>
-            <div class="card-note">隱喻：高度契合現代社會的勞務與考證體系</div>
+            <div class="card-note">對照：高度反映現實社會的考照體系與打工生活</div>
           </div>
           <div class="card">
-            <div class="card-title" style="color: var(--accent-warm);">資源豐沛與生存威脅的並存</div>
+            <div class="card-title" style="color: var(--accent-warm);">懸在頭頂的生存危機</div>
             <div class="card-body">
               <ul class="clean-list">
-                <li><strong>天然資源充沛：</strong> 湧出拉麵的溫泉、巨大布丁與蛋包飯山丘，營造烏托邦般的童話外觀。</li>
-                <li><strong>潛伏的致命魔物：</strong> 隨時出現的掠食者、具心智污染能力的詛咒道具與危險森林。</li>
-                <li><strong>無情的自然法則：</strong> 可愛外表下是弱肉強食的世界，小生物必須依附強者或抱團才能在野外生存。</li>
+                <li><strong>自然資源豐富：</strong> 巨型布丁、拉麵湧泉，營造出夢幻般的童話外表。</li>
+                <li><strong>同類異化威脅：</strong> 同伴可能因壓力或扭曲願望異化為「奇美拉」怪物。</li>
+                <li><strong>弱肉強食法則：</strong> 可愛外表下包裹著極其寫實的叢林法則與社會制度。</li>
               </ul>
             </div>
-            <div class="card-note">特色：極致療癒與生存危機並存</div>
+            <div class="card-note">特色：極致治癒與威脅感並存的獨特魅力</div>
           </div>
         </div>
       </section>
 
       <!-- 第 4 頁：十大角色介紹之一（主角三人組） -->
       <section>
-        <h2>主角三人組 <span class="header-tag"></span></h2>
+        <h2>核心角色介紹（一）：主角三人組 <span class="header-tag">Main Trio</span></h2>
         <div class="grid-container grid-3">
           <div class="card">
             <img src="chiikawa.jpg" alt="吉伊卡哇" class="char-img">
             <div class="card-title" style="color: var(--accent-warm);">1. 吉伊卡哇</div>
             <div class="card-body">
-              <strong>膽小純真，堅韌不拔。</strong> 性格容易膽怯掉淚，但為保護夥伴時能爆發驚人勇氣。抽中白菇住宅入住，即便考證照屢受挫折仍不放棄苦讀。
+              膽小愛哭卻無比堅韌的主角。抽中房子幸運入住，即便考證照屢屢受挫仍不放棄努力。
             </div>
           </div>
           <div class="card">
             <img src="hachiware.jpg" alt="小八貓" class="char-img">
             <div class="card-title" style="color: var(--accent-earth);">2. 小八貓</div>
             <div class="card-body">
-              <strong>溫暖通透，溝通擔當。</strong> 三人中唯一能流暢使用人類語言的橋樑。住在漏雨且門窗破損的山洞，性格樂觀大方，極度珍視友情。
+              三人組中的溝通橋樑與翻譯。住在漏雨的山洞中但性格樂觀大方，極度珍視朋友。
             </div>
           </div>
           <div class="card">
-            <img src="usagi_thumb.jpg" alt="兔兔" class="char-img">
+            <img src="usagi_thumb.jpg" alt="烏薩奇" class="char-img">
             <div class="card-title" style="color: var(--accent-amber);">3. 烏薩奇</div>
             <div class="card-body">
-              <strong>自由瘋癲，頂級戰神。</strong> 擁有高難度除草三級執照，手持雙頭炸彈魔杖，戰鬥智商極高，永遠在滅團危機中出手救援。
+              行事瘋癲的自由戰神。擁有頂級除草三級證照，永遠在團隊面臨滅團危機時神救援。
             </div>
           </div>
         </div>
@@ -276,27 +266,27 @@
 
       <!-- 第 5 頁：十大角色介紹之二（人氣實力組） -->
       <section>
-        <h2>人氣實力組 <span class="header-tag"></span></h2>
+        <h2>核心角色介紹（二）：人氣實力組 <span class="header-tag">Popular Characters</span></h2>
         <div class="grid-container grid-3">
           <div class="card">
-            <img src="momonga.jpg" alt="小桃鼠" class="char-img">
+            <img src="momonga.jpg" alt="飛鼠" class="char-img">
             <div class="card-title" style="color: var(--accent-warm);">4. 飛鼠 (Momonga)</div>
             <div class="card-body">
-              <strong>渴求讚美，身世成謎。</strong> 極度執著於被誇獎與裝可愛。性格任性霸道，言行舉止暗示其可能透過不明手段搶奪了原本小可愛的身軀。
+              瘋狂渴求被他人誇獎與裝可愛。性格任性霸道，背後疑似隱藏著奪取他人身軀的秘密。
             </div>
           </div>
           <div class="card">
             <img src="kurimanju.jpg" alt="栗子饅頭" class="char-img">
             <div class="card-title" style="color: var(--accent-earth);">5. 栗子饅頭</div>
             <div class="card-body">
-              <strong>成熟老饕，飲酒前輩。</strong> 持有飲酒執照的豪邁前輩。熟知各類美食與美酒搭配，在享受佳餚後總會發出標誌性的舒爽嘆息聲。
+              成熟的美食與飲酒前輩。持有飲酒執照，品嚐美食與美酒後總會發出靈魂嘆息「哈——」。
             </div>
           </div>
           <div class="card">
-            <img src="rakko.jpg" alt="海獺" class="char-img">
+            <img src="rakko.jpg" alt="海獺師傅" class="char-img">
             <div class="card-title" style="color: var(--accent-amber);">6. 海獺師傅</div>
             <div class="card-body">
-              <strong>頂級戰力，甜食愛好。</strong> 討伐榜第一名的強者，受到小傢伙們極度崇拜。駕駛黃色小車且劍術精湛，私下卻對精緻甜點毫無抵抗力。
+              討伐榜首第一戰力。實力強大受人敬仰，開著帥氣黃色小車，私下對甜食完全沒有抵抗力。
             </div>
           </div>
         </div>
@@ -304,127 +294,130 @@
 
       <!-- 第 6 頁：十大角色介紹之三（夥伴與守護者） -->
       <section>
-        <h2>夥伴與守護者 <span class="header-tag">Partners & Guardians</span></h2>
+        <h2>核心角色介紹（三）：夥伴與守護者 <span class="header-tag">Partners & Guardians</span></h2>
         <div class="grid-container grid-4">
           <div class="card">
-            <img src="shisa.jpg" alt="風獅爺" class="char-img">
-            <div class="card-title" style="color: var(--accent-amber); font-size: 0.85em;">7. 獅薩</div>
-            <div class="card-body" style="font-size: 0.68em;">
-              沖繩石獅化身。勤奮努力考取「超級打工者」證照並在拉麵店服務。
+            <img src="shisa.jpg" alt="獅薩" class="char-img">
+            <div class="card-title" style="color: var(--accent-amber); font-size: 0.82em;">7. 獅薩</div>
+            <div class="card-body" style="font-size: 0.65em;">
+              勤奮代表，努力考取高難度「超級打工者」證照並在拉麵店工作。
             </div>
           </div>
           <div class="card">
             <img src="furuhonya.jpg" alt="古本屋" class="char-img">
-            <div class="card-title" style="color: var(--accent-warm); font-size: 0.85em;">8. 古本屋</div>
-            <div class="card-body" style="font-size: 0.68em;">
-              頭戴蟹角頭飾的二手書攤老闆。害羞體貼，默默包容任性的飛鼠。
+            <div class="card-title" style="color: var(--accent-warm); font-size: 0.82em;">8. 古本屋</div>
+            <div class="card-body" style="font-size: 0.65em;">
+              頭戴蟹角頭飾的二手書攤老闆，性格害羞溫柔，默默包容飛鼠。
             </div>
           </div>
           <div class="card">
-            <img src="armor_work.jpg" alt="勞動鎧甲先生" class="char-img">
-            <div class="card-title" style="color: var(--text-sub); font-size: 0.85em;">9. 勞動鎧甲</div>
-            <div class="card-body" style="font-size: 0.68em;">
-              公事公辦的公務管理階層，負責指派除草與討伐任務並發放工資。
+            <img src="armor_work.jpg" alt="勞動鎧甲人" class="char-img">
+            <div class="card-title" style="color: var(--text-sub); font-size: 0.82em;">9. 勞動鎧甲</div>
+            <div class="card-body" style="font-size: 0.65em;">
+              公事公辦的公務員體系，負責分派每日除草與討伐任務並發放工資。
             </div>
           </div>
           <div class="card">
-            <img src="armor_pochette.jpg" alt="手拿包鎧甲先生" class="char-img">
-            <div class="card-title" style="color: var(--accent-earth); font-size: 0.85em;">10. 波謝特鎧甲</div>
-            <div class="card-body" style="font-size: 0.68em;">
-              熱愛手作縫紉，跨越管理規範與小八貓、吉伊卡哇建立深厚情誼。
+            <img src="armor_pochette.jpg" alt="波謝特鎧甲" class="char-img">
+            <div class="card-title" style="color: var(--accent-earth); font-size: 0.82em;">10. 波謝特鎧甲</div>
+            <div class="card-body" style="font-size: 0.65em;">
+              熱愛手作縫紉，跨越管理規範與吉伊卡哇、小八貓建立深厚友誼。
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 第 7 頁：烏薩奇專題介紹 -->
+      <!-- 第 7 頁：烏薩奇專題 -->
       <section>
-        <h2>兔兔 烏薩奇 <span class="header-tag">Usagi</span></h2>
+        <h2>角色焦點：烏薩奇（兔兔） <span class="header-tag">Usagi 呀哈</span></h2>
         <div class="grid-container grid-2">
-          <div style="display: flex; justify-content: center; align-items: center; background: #ffffff; border-radius: 12px; border: 1px solid var(--card-border); padding: 12px;">
-            <img src="usagi.jpg" alt="烏薩奇 Usagi" style="max-height: 320px; width: auto; max-width: 100%; border-radius: 8px;">
+          <div style="display: flex; justify-content: center; align-items: center; background: #ffffff; border-radius: 12px; border: 1px solid var(--card-border); padding: 10px;">
+            <img src="usagi.jpg" alt="烏薩奇 Usagi" style="max-height: 310px; width: auto; max-width: 100%; border-radius: 8px;">
           </div>
           <div class="card">
             <div>
               <span class="badge">神秘與頂級戰力的化身</span>
-              <div class="card-title" style="font-size: 1.05em; color: var(--accent-amber);">狂野戰神・烏薩奇</div>
+              <div class="card-title" style="font-size: 1em; color: var(--accent-amber);">自由戰神・烏薩奇</div>
               <div class="card-body">
                 <ul class="clean-list">
-                  <li><strong>非語言溝通體系：</strong> 平時只發出「嗚啦（Ura）」、「呀哈（Yaha）」或「普嚕嚕嚕」等怪叫，但情緒與戰術指令傳達極其精確。</li>
-                  <li><strong>天花板級戰鬥直覺：</strong> 持有高階除草三級執照，擅長使用雙頭炸彈魔杖。具備洞察陷阱與破解詛咒的敏銳直覺。</li>
-                  <li><strong>神秘背景與關鍵救場：</strong> 居住地與背景完全成謎。平時看似瘋癲不著調，但只要夥伴受困，永遠在最危急時刻精準現身救援。</li>
+                  <li><strong>獨特叫聲：</strong> 不會說人話，平時只發出「嗚啦（Ura）」、「呀哈（Yaha）」或「普嚕嚕嚕」等怪叫，但戰術溝通無礙。</li>
+                  <li><strong>戰鬥智商天花板：</strong> 持有高階除草三級執照，擅長使用雙頭炸彈魔杖，臨場判斷敏銳且能一眼看穿陷阱。</li>
+                  <li><strong>行蹤成謎與神救援：</strong> 沒有人知道烏薩奇住在哪裡，但只要夥伴受困，他永遠在關鍵時刻精準現身救援。</li>
                 </ul>
               </div>
             </div>
-            <div class="card-note">角色特質：絕對可靠的實力派代表，全劇中最具安全感的存在</div>
+            <div class="card-note">特質：全劇中最具安全感、無所畏懼的實力代表</div>
           </div>
         </div>
       </section>
 
-      <!-- 第 8 頁：深度補充內容之一（雙倍篇幅） -->
+      <!-- 第 8 頁：補充內容之一（雙倍篇幅，恐怖與反差美學） -->
       <section>
-        <h2>恐怖與反差美學 <span class="header-tag"></span></h2>
+        <h2>補充深度：恐怖與反差美學 <span class="header-tag">Aesthetics & Irony</span></h2>
         <div class="grid-container grid-2">
           <div class="card">
-            <div class="card-title" style="color: var(--accent-warm);">異化機制與願望的殘酷代價</div>
+            <div class="card-title" style="color: var(--accent-warm);">「不想再努力了」的代價與異化悲歌</div>
             <div class="card-body">
               <ul class="clean-list">
-                <li><strong>殘存的自我意識：</strong> 經典的初期奇美拉哭著說出「變成這樣了……就這樣了吧……」，揭示個體在喪失人性前殘留的悔恨與悲劇感。</li>
-                <li><strong>詛咒道具的代價：</strong> 能夠實現願望的木偶、拐杖或相機，往往伴隨著不可逆的精神侵蝕與肉體異化，隱喻捷徑背後的代價。</li>
+                <li><strong>怪物的真實來源：</strong> 作品中的魔物多數並非外來侵略者，而是「承受不住生存壓力、或渴望強大力量而變異」的小生物。</li>
+                <li><strong>殘存的自我意識：</strong> 初期奇美拉哭著說出「變成這樣了……就這樣了吧……」，道出個體在失去理智前殘留的悔恨與悲哀。</li>
+                <li><strong>走捷徑的殘酷代價：</strong> 能夠輕易實現願望的木偶或魔杖，往往伴隨著不可逆的精神侵蝕與變異，隱喻現實中捷徑背後的高昂代價。</li>
               </ul>
             </div>
-            <div class="card-note">核心意涵：直擊當代人對生活壓力與自我異化的潛在恐懼</div>
+            <div class="card-note">內核：直擊當代人面對高壓競爭時對自我迷失的恐懼</div>
           </div>
           <div class="card">
-            <div class="card-title" style="color: var(--accent-amber);">反差美學的敘事魅力</div>
+            <div class="card-title" style="color: var(--accent-amber);">Nagano 式反差美學的敘事魅力</div>
             <div class="card-body">
               <ul class="clean-list">
-                <li><strong>不避諱殘酷現實：</strong> 作品中沒有廉價的天降神蹟，小生物必須在既定體制與威脅下，靠自己的雙手面對殘酷後果。</li>
-                <li><strong>危險邊緣的日常感：</strong> 即使隨時可能遭遇魔物襲擊，大家依然認真準備每一頓飯、修補破舊山洞，展現強韌的生命力。</li>
+                <li><strong>水彩畫風下的殘酷現實：</strong> 甜美軟爛的水彩線條下，描繪著冷酷的適者生存法則，形成強烈的情感衝突與張力。</li>
+                <li><strong>不給予廉價的神蹟奇蹟：</strong> 故事中沒有天降救星，小生物必須在既定體制與生存威脅下，靠自己的雙手面對殘酷後果。</li>
+                <li><strong>危險邊緣的認真日常：</strong> 即使隨時有魔物侵襲，大家依然認真準備每一餐、修補破舊山洞，展現強韌的生活態度。</li>
               </ul>
             </div>
-            <div class="card-note">敘事價值：跳脫傳統幼童動畫框架，建立具備深度思考的成人敘事</div>
+            <div class="card-note">價值：跳脫傳統可愛動畫框架，具備深刻思考的成人寓言</div>
           </div>
         </div>
       </section>
 
-      <!-- 第 9 頁：深度補充內容之二（雙倍篇幅） -->
+      <!-- 第 9 頁：補充內容之二（雙倍篇幅，為何成年人深感共鳴） -->
       <section>
-        <h2>為何成年人深感共鳴？ <span class="header-tag"></span></h2>
+        <h2>補充深度：為何成年人深感共鳴？ <span class="header-tag">Emotional Resonance</span></h2>
         <div class="grid-container grid-2">
           <div class="card">
-            <div class="card-title" style="color: var(--accent-earth);">勞動社會的真實反應與挫折</div>
+            <div class="card-title" style="color: var(--accent-earth);">現實生活的真實投射與挫折</div>
             <div class="card-body">
               <ul class="clean-list">
-                <li><strong>資歷與考照焦慮：</strong> 吉伊苦讀數月依然落榜，小八無心插柳卻一次通過，深刻描繪「努力未必立即得到回報」的現實無奈。</li>
-                <li><strong>微薄報酬與生存循環：</strong> 每天除草打工賺取工資，省吃儉用只為買一台二手相機或一套餐具，完整還原當代青年打工人的生存寫照。</li>
-                <li><strong>體制下的階級距離：</strong> 鎧甲管理階層與受管轄小可愛之間既有法規限制，又存在人情溫度，隱喻職場體制中的人際張力。</li>
+                <li><strong>努力不一定成功：</strong> 吉伊卡哇苦讀數月依然落榜，小八貓無心插柳卻一次通過，深刻描寫現實中努力未必立刻有回報的無奈。</li>
+                <li><strong>勞動換取片刻安寧：</strong> 每天辛苦打工、除草換取微薄工資，省吃儉用只為買一台二手相機或吃一頓拉麵，正是當代生活寫照。</li>
+                <li><strong>體制下的距離與人情：</strong> 鎧甲管理階層與小可愛之間既有法規限制，又存在人情溫度，細膩呈現社會體制中的人際互動。</li>
               </ul>
             </div>
-            <div class="card-note">社會觀察：白領與基層勞動者的職場生活焦慮</div>
+            <div class="card-note">共鳴點：精準擊中在生活與職場中默默努力的大人們</div>
           </div>
           <div class="card">
             <div class="card-title" style="color: var(--accent-warm);">友誼界線感與精神自我修復</div>
             <div class="card-body">
               <ul class="clean-list">
-                <li><strong>健康的嫉妒與體貼：</strong> 落榜者強忍失落為好友買禮物祝賀，及格者默默收斂喜悅顧及朋友尊嚴，展現成年人最難能可貴的高情商友誼。</li>
-                <li><strong>日常微小確幸的治癒：</strong> 不需要宏大的英雄夢想，一口剛烤好的棉花糖、一杯熱湯或一頓壽喜燒，便足以支撐度過艱難的一天。</li>
-                <li><strong>脆弱個體彼此取暖：</strong> 在不講道理的世界中，個體雖微小脆弱，但彼此扶持的純粹善意，成為抵禦殘酷世界的唯一救贖。</li>
+                <li><strong>成熟體貼的友誼：</strong> 吉伊卡哇強忍失落買禮物為好友慶祝，小八貓體貼收起得意顧及朋友感受，展現最真誠的高情商友誼。</li>
+                <li><strong>日常微小確幸的治癒：</strong> 不需要宏大的英雄夢想，一口剛烤好的棉花糖、一碗熱湯或一頓壽喜燒，就足以撫平一整天的疲憊。</li>
+                <li><strong>脆弱個體的抱團取暖：</strong> 在充滿未知與不講理的世界中，雖然渺小脆弱，但彼此陪伴的純粹善意，成為面對生活的最大力量。</li>
               </ul>
             </div>
-            <div class="card-note">心理慰藉：在高壓社會中提供溫暖而不說教的心靈避風港</div>
+            <div class="card-note">慰藉：在高壓環境中提供最溫柔而不說教的心靈避風港</div>
           </div>
         </div>
       </section>
 
       <!-- 第 10 頁：結尾頁 -->
       <section style="justify-content: center !important; align-items: center !important; text-align: center;">
-        <div class="card" style="max-width: 840px; width: 100%; text-align: center; padding: 30px; height: auto;">
+        <div class="card" style="max-width: 780px; width: 100%; text-align: center; padding: 34px; height: auto;">
           <span class="badge" style="align-self: center;">Thank You</span>
-          <h1 style="font-size: 1.5em; margin: 10px 0 6px 0; color: var(--text-main);">哇！哇！嗚啦！呀哈！</h1>
-          <p style="font-size: 1.0em; color: var(--text-sub); margin-bottom: 12px;">在不溫柔的世界裡，溫柔且堅定地活著</p>
-          <hr style="border: none; border-top: 1px solid var(--card-border); margin: 12px auto; width: 60%;">
+          <h1 style="font-size: 2em; margin: 10px 0 6px 0; color: var(--text-main);">哇！哇！嗚啦！</h1>
+          <p style="font-size: 1.05em; color: var(--text-sub); margin-bottom: 14px;">感謝聆聽・歡迎交流討論</p>
+          <hr style="border: none; border-top: 1px solid var(--card-border); margin: 14px auto; width: 60%;">
           <p style="font-size: 0.75em; color: var(--text-sub); margin: 0;">
+            按 <strong>ESC</strong> 可查看投影片全景 ｜ 按 <strong>S</strong> 可開啟演講者備忘錄模式
           </p>
         </div>
       </section>
@@ -436,17 +429,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
   <script>
     Reveal.initialize({
-      width: 1200,          // 固定畫布寬度，確保 16:9 比例縮放
-      height: 700,          // 固定畫布高度，防止內容超出螢幕
-      margin: 0.04,         // 適度邊界縮放
-      minScale: 0.2,
-      maxScale: 1.5,
+      width: 1200,          // 基準寬度 (16:9)
+      height: 700,          // 基準高度 (16:9)
+      margin: 0.04,         // 邊界保留比例
+      minScale: 0.1,        // 允許縮小至 10%，確保直向小螢幕手機完整放入不切字
+      maxScale: 2.0,        // 允許高解析度螢幕放大至 200%
       hash: true,
       slideNumber: 'c/t',
       controls: true,
       progress: true,
-      center: false,        // 關閉自動垂直置中，改由 CSS flex 彈性撐滿
-      transition: 'slide'   // 換頁滑動動畫
+      center: true,         // 自動將縮放後的投影片在畫面中完美置中
+      transition: 'slide',  // 換頁滑動動畫
+      touch: true           // 支援手機觸控滑動翻頁
     });
 
     // 換頁時播放烏薩奇叫聲 'huh'
