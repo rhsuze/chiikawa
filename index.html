@@ -23,7 +23,7 @@
       --badge-text: #784732;
     }
 
-    /* 確保手機整個視窗與外圍邊框都是一致的奶茶底色，不產生突兀白邊 */
+    /* 全域背景綁定，避免手機上下出現白邊 */
     html, body {
       background-color: var(--bg-warm) !important;
       margin: 0;
@@ -39,7 +39,7 @@
       color: var(--text-main);
     }
 
-    /* 固定 1200x700 畫布容器，避免動態 top 造成位移跑版 */
+    /* 固定 1200x700 畫布容器 */
     .reveal .slides {
       text-align: left;
     }
@@ -49,21 +49,28 @@
       height: 700px !important;
       top: 0 !important;
       left: 0 !important;
-      padding: 30px 40px !important;
+      padding: 24px 36px !important;
       box-sizing: border-box !important;
       display: flex !important;
       flex-direction: column !important;
       justify-content: flex-start !important;
     }
 
-    /* 首頁與結尾頁專用居中排版 */
+    /* 封面與結尾頁專用：手機與電腦絕對水平與垂直置中 */
     .reveal .slides > section.center-slide {
+      display: flex !important;
+      flex-direction: column !important;
       justify-content: center !important;
       align-items: center !important;
       text-align: center !important;
+      height: 100% !important;
     }
 
-    /* 標題與版面階層 */
+    .reveal .slides > section.center-slide .card {
+      margin: auto !important;
+    }
+
+    /* 標題與版面階層（移除副標後更俐落） */
     .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
       color: var(--text-main);
       font-weight: 700;
@@ -74,23 +81,14 @@
     .reveal h2 {
       font-size: 1.35em;
       margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       border-bottom: 2px solid var(--card-border);
       padding-bottom: 6px;
     }
 
-    .header-tag {
-      font-size: 0.45em;
-      color: var(--text-sub);
-      font-weight: normal;
-    }
-
-    /* 網格系統：高度自動撐滿，網底等高切齊 */
+    /* 網格系統：強制等高、網底切齊 */
     .grid-container {
       display: grid;
-      gap: 14px;
+      gap: 12px;
       width: 100%;
       flex: 1;
       align-items: stretch;
@@ -105,7 +103,7 @@
     /* 卡片與網底樣式 */
     .card {
       background: var(--card-bg);
-      padding: 14px 18px;
+      padding: 12px 16px;
       border-radius: 12px;
       box-shadow: 0 4px 14px rgba(70, 50, 40, 0.04);
       border: 1px solid var(--card-border);
@@ -142,15 +140,15 @@
       padding-top: 4px;
     }
 
-    /* 角色圖片規範 */
+    /* 角色圖片規範（放大兩倍為 180px） */
     .char-img {
       width: 100%;
-      height: 95px;
+      height: 180px;
       object-fit: contain;
       background: #faf6f2;
       border-radius: 8px;
-      margin-bottom: 6px;
-      padding: 4px;
+      margin-bottom: 8px;
+      padding: 6px;
       box-sizing: border-box;
     }
 
@@ -166,15 +164,16 @@
       align-self: flex-start;
     }
 
-    ul.clean-list {
-      list-style: none;
-      padding-left: 0;
+    /* 純項目符號清單 */
+    ul.bullet-list {
+      list-style-type: disc;
+      padding-left: 20px;
       margin: 0;
     }
 
-    ul.clean-list li {
-      margin-bottom: 5px;
-      line-height: 1.4;
+    ul.bullet-list li {
+      margin-bottom: 6px;
+      line-height: 1.45;
       font-size: 0.74em;
     }
   </style>
@@ -187,7 +186,7 @@
   <div class="reveal">
     <div class="slides">
 
-<!-- 第 1 頁：封面（修正：加入 contain 防止手機直向放大爆圖） -->
+      <!-- 第 1 頁：封面 -->
       <section class="center-slide" 
                data-background-image="cover.jpg" 
                data-background-size="contain" 
@@ -199,49 +198,52 @@
           <h1 style="font-size: 2.3em; color: var(--text-main); margin: 12px 0 6px 0;">吉伊卡哇</h1>
           <p style="font-size: 1.1em; color: var(--text-sub); margin: 0 0 16px 0;">《這又小又可愛的傢伙》</p>
           <hr style="border: none; border-top: 1px solid var(--card-border); margin: 14px auto; width: 60%;">
-          <p style="font-size: 0.8em; color: var(--text-sub); margin: 0;">世界觀與社會隱喻</p>
+          <p style="font-size: 0.8em; color: var(--text-sub); margin: 0;">世界觀、受眾輪廓與社會隱喻</p>
         </div>
       </section>
 
-      <!-- 第 2 頁：目錄 -->
+      <!-- 第 2 頁：目錄（純項目符號，無編碼） -->
       <section>
-        <h2>Outline <span class="header-tag">目錄</span></h2>
+        <h2>Outline</h2>
         <div class="grid-container grid-2">
           <div class="card">
-            <div class="card-title">第一部分：世界觀與角色陣容</div>
+            <div class="card-title">第一部分：生態、角色與反差美學</div>
             <div class="card-body">
-              <ul class="clean-list">
-                <li>01. 殘酷與溫馨並存：吉伊卡哇的世界觀</li>
-                <li>02. 三小隻的羈絆（主角三人組）</li>
-                <li>03. 人氣實力組（飛鼠、栗子饅頭、海獺）</li>
-                <li>04. 夥伴與守護者（獅薩、古本屋、鎧甲人）</li>
-                <li>05. 烏薩奇 呀哈（戰神專題）</li>
+              <ul class="bullet-list">
+                <li>殘酷與溫馨並存：吉伊卡哇的世界觀</li>
+                <li>主角三人組（吉伊卡哇、小八貓、烏薩奇）</li>
+                <li>人氣實力組（小桃、栗子饅頭、海獺師傅）</li>
+                <li>夥伴與守護者（獅薩、古本屋、鎧甲人）</li>
+                <li>烏薩奇 呀哈（戰神專題）</li>
+                <li>恐怖與反差美學</li>
+                <li>為何成年人深感共鳴？</li>
               </ul>
             </div>
-            <div class="card-note">核心架構：生態體系與角色設定剖析</div>
           </div>
           <div class="card">
-            <div class="card-title">第二部分：深度反差與社會共鳴</div>
+            <div class="card-title">第二部分：受眾輪廓、消費力與文化現象</div>
             <div class="card-body">
-              <ul class="clean-list">
-                <li>06. 核心反差：怪物、擬態型與奇美拉（異化悲歌）</li>
-                <li>07. 成人共鳴：為什麼大人看得一把鼻涕一把眼淚？</li>
-                <li>08. 結尾與 Q&A 交流</li>
+              <ul class="bullet-list">
+                <li>主要受眾與人口輪廓分析</li>
+                <li>消費力與購買行為特徵</li>
+                <li>各角色受眾吸引力解析（一）</li>
+                <li>各角色受眾吸引力解析（二）</li>
+                <li>社群傳播與文化現象</li>
+                <li>結尾</li>
               </ul>
             </div>
-            <div class="card-note">內核意涵：直擊當代社會心理的深刻共鳴</div>
           </div>
         </div>
       </section>
 
       <!-- 第 3 頁：世界觀 -->
       <section>
-        <h2>看似童話，實為嚴酷的勞動世界 <span class="header-tag">Worldview</span></h2>
+        <h2>看似童話，實為嚴酷的勞動世界</h2>
         <div class="grid-container grid-2">
           <div class="card">
             <div class="card-title" style="color: var(--accent-amber);">勞動與生存經濟</div>
             <div class="card-body">
-              <ul class="clean-list">
+              <ul class="bullet-list">
                 <li><strong>除草工作：</strong> 拔除雜草賺取微薄報酬，考取「除草證照」可提升薪酬。</li>
                 <li><strong>討伐任務：</strong> 接取危險委託擊退威脅怪物，賺取豐厚賞金。</li>
                 <li><strong>鎧甲人階層：</strong> 負責行政管理與工資派發的管理者。</li>
@@ -252,7 +254,7 @@
           <div class="card">
             <div class="card-title" style="color: var(--accent-warm);">懸在頭頂的生存危機</div>
             <div class="card-body">
-              <ul class="clean-list">
+              <ul class="bullet-list">
                 <li><strong>自然資源豐富：</strong> 巨型布丁、拉麵湧泉，營造出夢幻般的童話外表。</li>
                 <li><strong>同類異化威脅：</strong> 同伴可能因壓力或扭曲願望異化為「奇美拉」怪物。</li>
                 <li><strong>弱肉強食法則：</strong> 可愛外表下包裹著極其寫實的叢林法則與社會制度。</li>
@@ -263,9 +265,9 @@
         </div>
       </section>
 
-      <!-- 第 4 頁：十大角色介紹之一（主角三人組） -->
+      <!-- 第 4 頁：主角三人組 -->
       <section>
-        <h2>核心角色介紹（一）：主角三人組 <span class="header-tag">Main Trio</span></h2>
+        <h2>主角三人組</h2>
         <div class="grid-container grid-3">
           <div class="card">
             <img src="chiikawa.jpg" alt="吉伊卡哇" class="char-img">
@@ -291,13 +293,13 @@
         </div>
       </section>
 
-      <!-- 第 5 頁：十大角色介紹之二（人氣實力組） -->
+      <!-- 第 5 頁：人氣實力組（更正為小桃） -->
       <section>
-        <h2>核心角色介紹（二）：人氣實力組 <span class="header-tag">Popular Characters</span></h2>
+        <h2>人氣實力組</h2>
         <div class="grid-container grid-3">
           <div class="card">
-            <img src="momonga.jpg" alt="飛鼠" class="char-img">
-            <div class="card-title" style="color: var(--accent-warm);">4. 飛鼠 (Momonga)</div>
+            <img src="momonga.jpg" alt="小桃" class="char-img">
+            <div class="card-title" style="color: var(--accent-warm);">4. 小桃</div>
             <div class="card-body">
               瘋狂渴求被他人誇獎與裝可愛。性格任性霸道，背後疑似隱藏著奪取他人身軀的秘密。
             </div>
@@ -319,9 +321,9 @@
         </div>
       </section>
 
-      <!-- 第 6 頁：十大角色介紹之三（夥伴與守護者） -->
+      <!-- 第 6 頁：夥伴與守護者 -->
       <section>
-        <h2>核心角色介紹（三）：夥伴與守護者 <span class="header-tag">Partners & Guardians</span></h2>
+        <h2>夥伴與守護者</h2>
         <div class="grid-container grid-4">
           <div class="card">
             <img src="shisa.jpg" alt="獅薩" class="char-img">
@@ -334,7 +336,7 @@
             <img src="furuhonya.jpg" alt="古本屋" class="char-img">
             <div class="card-title" style="color: var(--accent-warm); font-size: 0.82em;">8. 古本屋</div>
             <div class="card-body" style="font-size: 0.65em;">
-              頭戴蟹角頭飾的二手書攤老闆，性格害羞溫柔，默默包容飛鼠。
+              頭戴蟹角頭飾的二手書攤老闆，性格害羞溫柔，默默包容小桃。
             </div>
           </div>
           <div class="card">
@@ -356,7 +358,7 @@
 
       <!-- 第 7 頁：烏薩奇專題 -->
       <section>
-        <h2>角色焦點：烏薩奇（兔兔） <span class="header-tag">Usagi 呀哈</span></h2>
+        <h2>烏薩奇 呀哈</h2>
         <div class="grid-container grid-2">
           <div style="display: flex; justify-content: center; align-items: center; background: #ffffff; border-radius: 12px; border: 1px solid var(--card-border); padding: 10px;">
             <img src="usagi.jpg" alt="烏薩奇 Usagi" style="max-height: 310px; width: auto; max-width: 100%; border-radius: 8px;">
@@ -366,7 +368,7 @@
               <span class="badge">神秘與頂級戰力的化身</span>
               <div class="card-title" style="font-size: 1em; color: var(--accent-amber);">自由戰神・烏薩奇</div>
               <div class="card-body">
-                <ul class="clean-list">
+                <ul class="bullet-list">
                   <li><strong>獨特叫聲：</strong> 不會說人話，平時只發出「嗚啦（Ura）」、「呀哈（Yaha）」或「普嚕嚕嚕」等怪叫，但戰術溝通無礙。</li>
                   <li><strong>戰鬥智商天花板：</strong> 持有高階除草三級執照，擅長使用雙頭炸彈魔杖，臨場判斷敏銳且能一眼看穿陷阱。</li>
                   <li><strong>行蹤成謎與神救援：</strong> 沒有人知道烏薩奇住在哪裡，但只要夥伴受困，他永遠在關鍵時刻精準現身救援。</li>
@@ -378,14 +380,14 @@
         </div>
       </section>
 
-      <!-- 第 8 頁：補充內容之一（雙倍篇幅，恐怖與反差美學） -->
+      <!-- 第 8 頁：恐怖與反差美學 -->
       <section>
-        <h2>補充深度：恐怖與反差美學 <span class="header-tag">Aesthetics & Irony</span></h2>
+        <h2>恐怖與反差美學</h2>
         <div class="grid-container grid-2">
           <div class="card">
             <div class="card-title" style="color: var(--accent-warm);">「不想再努力了」的代價與異化悲歌</div>
             <div class="card-body">
-              <ul class="clean-list">
+              <ul class="bullet-list">
                 <li><strong>怪物的真實來源：</strong> 作品中的魔物多數並非外來侵略者，而是「承受不住生存壓力、或渴望強大力量而變異」的小生物。</li>
                 <li><strong>殘存的自我意識：</strong> 初期奇美拉哭著說出「變成這樣了……就這樣了吧……」，道出個體在失去理智前殘留的悔恨與悲哀。</li>
                 <li><strong>走捷徑的殘酷代價：</strong> 能夠輕易實現願望的木偶或魔杖，往往伴隨著不可逆的精神侵蝕與變異，隱喻現實中捷徑背後的高昂代價。</li>
@@ -396,7 +398,7 @@
           <div class="card">
             <div class="card-title" style="color: var(--accent-amber);">Nagano 式反差美學的敘事魅力</div>
             <div class="card-body">
-              <ul class="clean-list">
+              <ul class="bullet-list">
                 <li><strong>水彩畫風下的殘酷現實：</strong> 甜美軟爛的水彩線條下，描繪著冷酷的適者生存法則，形成強烈的情感衝突與張力。</li>
                 <li><strong>不給予廉價的神蹟奇蹟：</strong> 故事中沒有天降救星，小生物必須在既定體制與生存威脅下，靠自己的雙手面對殘酷後果。</li>
                 <li><strong>危險邊緣的認真日常：</strong> 即使隨時有魔物侵襲，大家依然認真準備每一餐、修補破舊山洞，展現強韌的生活態度。</li>
@@ -407,14 +409,14 @@
         </div>
       </section>
 
-      <!-- 第 9 頁：補充內容之二（雙倍篇幅，為何成年人深感共鳴） -->
+      <!-- 第 9 頁：為何成年人深感共鳴？ -->
       <section>
-        <h2>補充深度：為何成年人深感共鳴？ <span class="header-tag">Emotional Resonance</span></h2>
+        <h2>為何成年人深感共鳴？</h2>
         <div class="grid-container grid-2">
           <div class="card">
             <div class="card-title" style="color: var(--accent-earth);">現實生活的真實投射與挫折</div>
             <div class="card-body">
-              <ul class="clean-list">
+              <ul class="bullet-list">
                 <li><strong>努力不一定成功：</strong> 吉伊卡哇苦讀數月依然落榜，小八貓無心插柳卻一次通過，深刻描寫現實中努力未必立刻有回報的無奈。</li>
                 <li><strong>勞動換取片刻安寧：</strong> 每天辛苦打工、除草換取微薄工資，省吃儉用只為買一台二手相機或吃一頓拉麵，正是當代生活寫照。</li>
                 <li><strong>體制下的距離與人情：</strong> 鎧甲管理階層與小可愛之間既有法規限制，又存在人情溫度，細膩呈現社會體制中的人際互動。</li>
@@ -425,7 +427,7 @@
           <div class="card">
             <div class="card-title" style="color: var(--accent-warm);">友誼界線感與精神自我修復</div>
             <div class="card-body">
-              <ul class="clean-list">
+              <ul class="bullet-list">
                 <li><strong>成熟體貼的友誼：</strong> 吉伊卡哇強忍失落買禮物為好友慶祝，小八貓體貼收起得意顧及朋友感受，展現最真誠的高情商友誼。</li>
                 <li><strong>日常微小確幸的治癒：</strong> 不需要宏大的英雄夢想，一口剛烤好的棉花糖、一碗熱湯或一頓壽喜燒，就足以撫平一整天的疲憊。</li>
                 <li><strong>脆弱個體的抱團取暖：</strong> 在充滿未知與不講理的世界中，雖然渺小脆弱，但彼此陪伴的純粹善意，成為面對生活的最大力量。</li>
@@ -436,16 +438,185 @@
         </div>
       </section>
 
-      <!-- 第 10 頁：結尾頁 -->
+      <!-- 第 10 頁：主要受眾與人口輪廓（新擴展） -->
+      <section>
+        <h2>主要受眾與人口輪廓</h2>
+        <div class="grid-container grid-2">
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-amber);">年齡層與性別分佈</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>核心主力族群：</strong> 集中於 18～35 歲的大學生、社會新鮮人與都會白領階級。</li>
+                <li><strong>性別比例結構：</strong> 女性佔約 60%、男性佔約 40%，男性比例遠高於一般可愛系 IP。</li>
+                <li><strong>男性入坑契機：</strong> 烏薩奇的狂野戰力、流暢的打鬥分鏡與克蘇魯式的硬派世界觀設定。</li>
+                <li><strong>全年齡層滲透：</strong> 向上延伸至 40 歲以上具穩定經濟基礎的資深上班族與家庭客群。</li>
+              </ul>
+            </div>
+            <div class="card-note">客群特質：徹底脫離幼兒動畫範疇，以具備獨立經濟能力的青年為核心</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-earth);">生活型態與心理特徵</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>高壓職場生活：</strong> 長時間面對工作競爭與生活焦慮，渴望低負擔的情緒出口。</li>
+                <li><strong>碎片化娛樂習慣：</strong> 偏好 1 分鐘短動畫與社群單頁漫畫，契合快節奏通勤節奏。</li>
+                <li><strong>情感投射寄託：</strong> 將自身在職場的委屈與努力，投射至吉伊卡哇努力除草考照的日常。</li>
+                <li><strong>同溫層認同感：</strong> 透過配戴角色周邊，在同儕與職場間建立無聲的情感默契與話題。</li>
+              </ul>
+            </div>
+            <div class="card-note">心理需求：滿足當代高壓社會對「即時心靈療癒」與「被理解感」的渴望</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 第 11 頁：消費力與購買行為分析（新擴展） -->
+      <section>
+        <h2>消費力與購買行為分析</h2>
+        <div class="grid-container grid-2">
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-warm);">悅己型消費與高溢價耐受度</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>犒賞心理機制：</strong> 將購買周邊視為下班後的「自我犒賞（Treat Myself）」，消費動機強烈。</li>
+                <li><strong>盲盒與扭蛋複購：</strong> 隨機抽盒與轉蛋機制引發高度收集慾，全包與複數收集比例極高。</li>
+                <li><strong>快閃搶購實力：</strong> 快閃店排隊 3～5 小時發放號碼牌，單筆客單價常達數千元。</li>
+                <li><strong>生活實用品買單：</strong> 涵蓋居家服飾、餐具、包袋等日常品，具備極高的實用轉化率。</li>
+              </ul>
+            </div>
+            <div class="card-note">消費模式：非衝動型垃圾消費，而是願意為高情緒價值支付合理溢價</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-amber);">「娃活」社交經濟與痛包文化</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>攜帶玩偶出遊（娃活）：</strong> 將小吊飾帶至餐廳、咖啡廳、旅行景點拍照，成為日常儀式。</li>
+                <li><strong>痛包與配件展示：</strong> 使用透明包款陳列多隻玩偶與徽章，展現個人喜好與審美。</li>
+                <li><strong>社群二次傳播：</strong> 在 Instagram 與 Threads 上分享拍照打卡，創造龐大的自發性社群聲量。</li>
+                <li><strong>二手市場活躍：</strong> 稀有限定款或絕版角色在二手市場具備高度保值與溢價流動性。</li>
+              </ul>
+            </div>
+            <div class="card-note">文化價值：周邊商品兼具「陪伴玩偶」與「社群社交貨幣」雙重屬性</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 第 12 頁：各角色受眾吸引力解析（一）（新擴展） -->
+      <section>
+        <h2>各角色受眾吸引力解析（一）</h2>
+        <div class="grid-container grid-3">
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-warm);">吉伊卡哇：脆弱共感與保護欲</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>吸引客群：</strong> 容易感到焦慮、不自信但仍默默努力的青年。</li>
+                <li><strong>心理投射：</strong> 「雖然我很膽小愛哭，但為了重要的人我也能鼓起勇氣。」</li>
+                <li><strong>魅力核心：</strong> 激發受眾強烈的母愛、保護欲與自我投射的安慰感。</li>
+              </ul>
+            </div>
+            <div class="card-note">核心共鳴：獻給所有在生活中努力支撐的微小自己</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-earth);">小八貓：情緒價值與理想夥伴</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>吸引客群：</strong> 重視人際關係、渴望溫暖陪伴與善意交流的受眾。</li>
+                <li><strong>心理投射：</strong> 即使生活貧困漏雨，依然保持樂觀體貼、處處為朋友著想。</li>
+                <li><strong>魅力核心：</strong> 完美的情緒穩定劑，每個人生命中最渴望擁有的天使朋友。</li>
+              </ul>
+            </div>
+            <div class="card-note">核心共鳴：在冷漠社會中最珍貴的真誠與善良</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-amber);">烏薩奇：精神狀態投射與自由</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>吸引客群：</strong> 高壓白領、男性粉絲及嚮往不受拘束生活者。</li>
+                <li><strong>心理投射：</strong> 不在乎世俗眼光、隨時隨地發瘋怪叫，但實力極度強悍。</li>
+                <li><strong>魅力核心：</strong> 精神狀態領先全人類的瘋癲感，帶來極致的解壓快感。</li>
+              </ul>
+            </div>
+            <div class="card-note">核心共鳴：當代打工人最渴望擁有的精神自由</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 第 13 頁：各角色受眾吸引力解析（二）（新擴展） -->
+      <section>
+        <h2>各角色受眾吸引力解析（二）</h2>
+        <div class="grid-container grid-3">
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-warm);">小桃：渴求認同與傲嬌反差</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>吸引客群：</strong> 喜愛反差萌、性格直率或對內心陰影有共鳴者。</li>
+                <li><strong>心理投射：</strong> 瘋狂渴望被誇獎可愛，隱藏著不想回到過去的自私與脆弱。</li>
+                <li><strong>魅力核心：</strong> 任性小惡魔外表下的複雜人性，展現非純善的真實魅力。</li>
+              </ul>
+            </div>
+            <div class="card-note">核心共鳴：直面內心對被愛與被認可的強烈渴望</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-earth);">栗子饅頭：微醺大人味與老饕</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>吸引客群：</strong> 喜愛品酒、熱愛美食日常的成熟上班族與男性。</li>
+                <li><strong>心理投射：</strong> 下班後大口喝酒配下酒菜、發出「哈——」的放鬆神態。</li>
+                <li><strong>魅力核心：</strong> 懂得享受生活的成熟前輩，自帶安定悠閒的成熟氣場。</li>
+              </ul>
+            </div>
+            <div class="card-note">核心共鳴：大人的浪漫就是下班後的片刻微醺</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-amber);">海獺師傅：實力憧憬與反差萌</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>吸引客群：</strong> 嚮往強大實力、重視專業能力與反差魅力的粉絲。</li>
+                <li><strong>心理投射：</strong> 討伐戰力天花板的帥氣強者，私底下極度熱愛精緻甜點。</li>
+                <li><strong>魅力核心：</strong> 值得信賴的指導者形象，搭配反差甜食喜好的萌點。</li>
+              </ul>
+            </div>
+            <div class="card-note">核心共鳴：可靠強大的外表下保有純真的一面</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 第 14 頁：社群傳播與文化現象（新擴展） -->
+      <section>
+        <h2>社群傳播與文化現象</h2>
+        <div class="grid-container grid-2">
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-amber);">迷因傳播與同溫層共通語言</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>角色叫聲語彙化：</strong> 「呀哈」、「嗚啦」、「哈——」成為社群與通訊軟體的日常招呼用語。</li>
+                <li><strong>迷因梗圖高頻傳播：</strong> 角色哭泣、認真除草、被魔物困住的截圖被廣泛製作成打工生活表情包。</li>
+                <li><strong>演算法與社群裂變：</strong> 在 Threads、Instagram 與 X 上具備極高的互動率與病毒式擴散能力。</li>
+                <li><strong>無語言隔閡特質：</strong> 依靠生動肢體語言與微表情，跨越文化與語言障礙迅速引發全球共鳴。</li>
+              </ul>
+            </div>
+            <div class="card-note">傳播特點：極低理解門檻與極高共情力，具備強大的社群自繁殖特性</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="color: var(--accent-warm);">跨界聯名效應與文化符號化</div>
+            <div class="card-body">
+              <ul class="bullet-list">
+                <li><strong>全民搶購熱潮：</strong> 超商集點、連鎖餐飲扭蛋活動引發全台現象級搶購與代吃風潮。</li>
+                <li><strong>品牌形象年輕化：</strong> 悠遊卡、日系服飾等品牌透過聯名成功打入年輕世代生活圈。</li>
+                <li><strong>從動漫躍升文化符號：</strong> 超越二次元圈層，成為當代都會青年抵抗生活壓力的共同精神圖騰。</li>
+                <li><strong>持續延燒的長尾效應：</strong> 動畫持續更新與漫畫連載推動下，粉絲黏著度與忠誠度長盛不衰。</li>
+              </ul>
+            </div>
+            <div class="card-note">產業結論：已晉升為具備龐大商業價值與文化影響力的頂級長青 IP</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 第 15 頁：結尾頁（依要求簡化為 Thank you 哇！哇！呀哈！ 普嚕嚕嚕） -->
       <section class="center-slide">
-        <div class="card" style="width: 780px; padding: 40px 30px; text-align: center; height: auto;">
+        <div class="card" style="width: 780px; padding: 48px 30px; text-align: center; height: auto;">
           <span class="badge" style="align-self: center;">Thank You</span>
-          <h1 style="font-size: 2.3em; margin: 12px 0 6px 0; color: var(--text-main);">哇！哇！嗚啦！</h1>
-          <p style="font-size: 1.1em; color: var(--text-sub); margin: 0 0 16px 0;">普嚕嚕嚕嚕</p>
-          <hr style="border: none; border-top: 1px solid var(--card-border); margin: 14px auto; width: 60%;">
-          <p style="font-size: 0.8em; color: var(--text-sub); margin: 0;">
-            感謝聆聽・按 <strong>ESC</strong> 查看全景 ｜ 按 <strong>S</strong> 開啟演講者模式
-          </p>
+          <h1 style="font-size: 2.3em; margin: 16px 0 10px 0; color: var(--text-main);">哇！哇！呀哈！</h1>
+          <p style="font-size: 1.15em; color: var(--text-sub); margin: 0;">普嚕嚕嚕</p>
         </div>
       </section>
 
@@ -458,14 +629,14 @@
     Reveal.initialize({
       width: 1200,          // 基準寬度 (16:9)
       height: 700,          // 基準高度 (16:9)
-      margin: 0.04,         // 邊界保留比例
-      minScale: 0.1,        // 允許縮小至 10%，確保手機直向能完整容納不切邊
+      margin: 0.04,         // 畫面邊界保留比例
+      minScale: 0.1,        // 允許縮小至 10%，確保直向小螢幕手機完整放入不切字
       maxScale: 2.0,        // 允許高解析度螢幕放大至 200%
       hash: true,
       slideNumber: 'c/t',
       controls: true,
       progress: true,
-      center: false,        // 關閉 Reveal 動態 top 計算，解決手機位移跑版問題
+      center: false,        // 關閉動態 top 計算，解決手機版位移跑版問題
       transition: 'slide',  // 換頁滑動動畫
       touch: true           // 支援手機觸控滑動翻頁
     });
